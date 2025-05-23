@@ -1,0 +1,2 @@
+Mensaje: Hola, este es un mensaje cifrado
+HMAC: 5555302382e655433c28f5fb5af7d2f7f39f46e8b36987820bd60e6abd956e05
