@@ -1,8 +1,13 @@
 # 📦 Simulador de Mensajes con Hash y HMAC
 
-Este proyecto en Node.js simula el proceso de enviar y verificar un mensaje utilizando **SHA-256** para hashing y **HMAC** para asegurar la autenticidad del mensaje con una clave secreta.
+Este proyecto en Node.js simula el proceso de **generar, enviar y verificar** un mensaje utilizando:
 
-## 📂 Estructura del proyecto
+- `SHA-256` para hashing.
+- `HMAC` para asegurar la autenticidad del mensaje con una clave secreta.
+
+---
+
+## 📂 Estructura del Proyecto
 
 ```
 .
@@ -13,14 +18,18 @@ Este proyecto en Node.js simula el proceso de enviar y verificar un mensaje util
     └── mensaje.txt # Archivo generado con el mensaje y su HMAC
 ```
 
+---
+
 ## ⚙️ Requisitos
 
-- Node.js v18 o superior  
+- Node.js **v18 o superior**
 - No se necesita navegador ni servidor web
 
-> ⚠️ Usa `import` y WebCrypto API, por lo que debe ejecutarse como módulo ES y con soporte moderno de Node.js.
+> ⚠️ Este proyecto usa `import`/`export` y la Web Crypto API (`webcrypto`), por lo que requiere ejecutar Node en modo ES Modules.
 
-## 🚀 Instalación
+---
+
+## 🚀 Instalación y Uso
 
 1. Clona este repositorio:
 
@@ -29,39 +38,50 @@ git clone https://github.com/tu-usuario/simulador-mac.git
 cd simulador-mac
 ```
 
-2. Ejecuta el script principal:
+2. Asegúrate de tener una carpeta llamada `mensajes/` en la raíz del proyecto:
+
+```bash
+mkdir mensajes
+```
+
+3. Ejecuta el script principal:
 
 ```bash
 node index.js
 ```
 
-> Asegúrate de que tienes una carpeta llamada `mensajes/` en el mismo directorio.
+---
 
 ## 📌 ¿Qué hace?
 
 1. En `index.js`:
-   - Genera un hash SHA-256 del mensaje `"Hola que hace"` usando la Web Crypto API.
-   - Llama a `envio()`.
+   - Genera el hash SHA-256 del mensaje `"Hola que hace"`.
+   - Llama a `envio()` para simular el envío.
 
 2. En `envio.js`:
-   - Crea un mensaje y genera un HMAC con una clave secreta.
-   - Guarda ambos en un archivo `mensajes/mensaje.txt`.
-   - Llama a `recibo()` para verificar.
+   - Crea un mensaje fijo y calcula su HMAC con una clave secreta.
+   - Guarda el mensaje y el HMAC en `mensajes/mensaje.txt`.
+   - Llama a `recibo()` para verificarlo.
 
 3. En `recibo.js`:
-   - Lee el archivo, recalcula el HMAC y compara ambos.
-   - Informa si el mensaje ha sido modificado.
+   - Lee el archivo generado.
+   - Calcula el HMAC del mensaje leído y lo compara con el HMAC recibido.
+   - Informa si el mensaje es auténtico o ha sido modificado.
+
+---
 
 ## 🔐 Seguridad
 
-- Usa **SHA-256** para hashing.
-- Usa **HMAC con SHA-256** y una clave secreta para asegurar la integridad del mensaje.
+- ✅ Hash con **SHA-256**
+- ✅ Autenticación con **HMAC + clave secreta compartida**
 
-## 📄 Ejemplo de salida
+---
+
+## 💡 Ejemplo de salida esperada
 
 ```
 Mensaje original: Hola que hace
-Hash SHA-256: <...>
+Hash SHA-256: <hash>
 
 Mensaje cifrado: <hmac>
 Mensaje: Hola, este es un mensaje cifrado
@@ -74,5 +94,14 @@ HMAC calculado: <hmac>
 El mensaje es igual.
 ```
 
-## 🚀 Ejemplo de ejecución
-<img src="https://media.discordapp.net/attachments/1235713578556985506/1376387543100162068/image.png?ex=6835244a&is=6833d2ca&hm=e243a8c70d1468a35041b06ca2557ac29e3dc234806a2422c295aa7e3204d66e&=&format=webp&quality=lossless" alt="Ejemlo" width="300"/>
+---
+
+## 🖼️ Ejemplo de Ejecución
+
+<img src="https://media.discordapp.net/attachments/1235713578556985506/1376387543100162068/image.png?ex=6835244a&is=6833d2ca&hm=e243a8c70d1468a35041b06ca2557ac29e3dc234806a2422c295aa7e3204d66e&=&format=webp&quality=lossless" alt="Ejemplo de ejecución" width="500"/>
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia PUCESE.
