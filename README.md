@@ -73,3 +73,6 @@ HMAC recibido : <hmac>
 HMAC calculado: <hmac>
 El mensaje es igual.
 ```
+
+## 🚀 Ejemplo de ejecución
+<img src="https://media.discordapp.net/attachments/1235713578556985506/1376387543100162068/image.png?ex=6835244a&is=6833d2ca&hm=e243a8c70d1468a35041b06ca2557ac29e3dc234806a2422c295aa7e3204d66e&=&format=webp&quality=lossless" alt="Ejemlo" width="300"/>
